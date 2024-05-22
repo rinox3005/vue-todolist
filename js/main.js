@@ -31,8 +31,10 @@ createApp({
       this.todoList.splice(index, 1);
     },
     createNewToDo() {
-      this.todoList.push({ text: this.newToDo, done: false });
-      this.newToDo = "";
+      if (this.newToDo.trim() !== "") {
+        this.todoList.push({ text: this.newToDo.trim(), done: false });
+        this.newToDo = "";
+      }
     },
   },
 }).mount("#app");

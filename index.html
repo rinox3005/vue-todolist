@@ -27,15 +27,18 @@
                     <div class="card rounded border-0 shadow-sm position-relative">
                         <div class="card-body p-5">
                             <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i class="far fa-calendar-alt fa-3x"></i>
+                                <!-- Data e giorno -->
                                 <div class="ms-3">
                                     <h4 class="text-uppercase fw-weight-bold mb-0">Wednesday</h4>
                                     <p class="text-gray fst-italic mb-0">22 May 2024</p>
                                 </div>
                             </div>
+                            <!-- Campo di input per l'inserimento di un nuovo todo -->
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Add New ToDo" maxlength="40" aria-label="Add New ToDo" aria-describedby="button-addon2" v-model="newToDo">
+                                <input type="text" class="form-control" placeholder="Add New ToDo" maxlength="40" aria-label="Add New ToDo" aria-describedby="button-addon2" v-model="newToDo" @keyup.enter="createNewToDo">
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="createNewToDo">Add</button>
                               </div>
+                              <!-- Elementi della todo list -->
                             <div class="form-check mb-3" v-for="(item, index) in todoList">
                                 <input class="form-check-input" :id=`flexCheck${index}` type="checkbox" maxlength="40" v-model="todoList[index].done" >
                                 <label class="form-check-label" :class="{done: todoList[index].done}" :for=`flexCheck${index}`><span class="fst-italic pl-1" >{{ todoList[index].text }}</span></label>
