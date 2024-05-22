@@ -32,27 +32,29 @@ createApp({
       ],
     };
   },
+  computed: {
+    currentDate() {
+      const today = new Date();
+      const day = today.getDate();
+      const month = this.monthNames[today.getMonth()];
+      const year = today.getFullYear();
+      return `${day} ${month} ${year}`;
+    },
+    currentDay() {
+      const today = new Date();
+      return this.weekdaysName[today.getDay()];
+    },
+  },
   methods: {
     deleteItem(index) {
       this.todoList.splice(index, 1);
     },
     createNewToDo() {
-      if (this.newToDo.trim() !== "") {
-        this.todoList.push({ text: this.newToDo.trim(), done: false });
+      const trimmedToDo = this.newToDo.trim();
+      if (trimmedToDo) {
+        this.todoList.push({ text: trimmedToDo, done: false });
         this.newToDo = "";
       }
-    },
-    setDate() {
-      let today = new Date();
-      let day = today.getDate();
-      let month = this.monthNames[today.getMonth()];
-      let year = today.getFullYear();
-      return `${day} ${month} ${year}`;
-    },
-    setDay() {
-      let today = new Date();
-      let day = this.weekdaysName[today.getDay()];
-      return day;
     },
   },
 }).mount("#app");
