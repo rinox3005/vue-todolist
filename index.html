@@ -35,6 +35,7 @@
                             <div class="form-check mb-3" v-for="(item, index) in todoList">
                                 <input class="form-check-input" :id=`flexCheck${index}` type="checkbox" v-model="todoList[index].done" >
                                 <label class="form-check-label" :class="{done: todoList[index].done}" :for=`flexCheck${index}`><span class="fst-italic pl-1" >{{ todoList[index].text }}</span></label>
+                                <i class="fas fa-xmark ps-2 delete" @click="deleteItem(index)"></i>
                             </div>
                         </div>
                     </div>

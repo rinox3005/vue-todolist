@@ -30,3 +30,12 @@ label {
 a {
   text-decoration: none;
 }
+
+.delete {
+  font-size: 18px;
+}
+
+.delete:hover {
+  color: red;
+  cursor: pointer;
+}
