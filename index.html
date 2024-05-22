@@ -32,8 +32,12 @@
                                     <p class="text-gray fst-italic mb-0">22 May 2024</p>
                                 </div>
                             </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Add New ToDo" maxlength="40" aria-label="Add New ToDo" aria-describedby="button-addon2" v-model="newToDo">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="createNewToDo">Add</button>
+                              </div>
                             <div class="form-check mb-3" v-for="(item, index) in todoList">
-                                <input class="form-check-input" :id=`flexCheck${index}` type="checkbox" v-model="todoList[index].done" >
+                                <input class="form-check-input" :id=`flexCheck${index}` type="checkbox" maxlength="40" v-model="todoList[index].done" >
                                 <label class="form-check-label" :class="{done: todoList[index].done}" :for=`flexCheck${index}`><span class="fst-italic pl-1" >{{ todoList[index].text }}</span></label>
                                 <i class="fas fa-xmark ps-2 delete" @click="deleteItem(index)"></i>
                             </div>

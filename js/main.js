@@ -23,11 +23,16 @@ createApp({
           done: false,
         },
       ],
+      newToDo: "",
     };
   },
   methods: {
     deleteItem(index) {
       this.todoList.splice(index, 1);
+    },
+    createNewToDo() {
+      this.todoList.push({ text: this.newToDo, done: false });
+      this.newToDo = "";
     },
   },
 }).mount("#app");
