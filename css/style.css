@@ -6,12 +6,18 @@
 }
 
 .holder {
-  background: #f0efe9;
+  background: antiquewhite;
   min-height: 100vh;
 }
 
 .rounded {
   border-radius: 1rem;
+}
+
+.box-shadow {
+  box-shadow: 5px 5px 0px 0px #e2e1e1, 10px 10px 0px 0px #e3e6e6,
+    15px 15px 0px 0px #eaeef1, 20px 20px 0px 0px #f1f1f1,
+    25px 25px 0px 0px #f3f3f3, 5px 5px 15px 5px rgba(255, 254, 254, 0);
 }
 
 .text-gray {
@@ -38,4 +44,8 @@ a {
 .delete:hover {
   color: red;
   cursor: pointer;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px #585757;
 }

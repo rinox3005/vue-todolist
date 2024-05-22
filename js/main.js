@@ -5,25 +5,31 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      todoList: [
-        {
-          text: "Buy a new shirt",
-          done: false,
-        },
-        {
-          text: "Buy pet food",
-          done: false,
-        },
-        {
-          text: "Buy oranges",
-          done: false,
-        },
-        {
-          text: "Call John",
-          done: false,
-        },
-      ],
+      todoList: [],
       newToDo: "",
+      monthNames: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+      weekdaysName: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
     };
   },
   methods: {
@@ -35,6 +41,18 @@ createApp({
         this.todoList.push({ text: this.newToDo.trim(), done: false });
         this.newToDo = "";
       }
+    },
+    setDate() {
+      let today = new Date();
+      let day = today.getDate();
+      let month = this.monthNames[today.getMonth()];
+      let year = today.getFullYear();
+      return `${day} ${month} ${year}`;
+    },
+    setDay() {
+      let today = new Date();
+      let day = this.weekdaysName[today.getDay()];
+      return day;
     },
   },
 }).mount("#app");
