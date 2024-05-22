@@ -20,7 +20,31 @@
     />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" v-cloak>
+        <div class="holder d-flex align-items-center justify-content-center ">
+            <div class="row container">
+                <div class="col-lg-5 mx-auto">
+                    <div class="card rounded border-0 shadow-sm position-relative">
+                        <div class="card-body p-5">
+                            <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i class="far fa-calendar-alt fa-3x"></i>
+                                <div class="ms-3">
+                                    <h4 class="text-uppercase fw-weight-bold mb-0">Wednesday</h4>
+                                    <p class="text-gray fst-italic mb-0">22 May 2024</p>
+                                </div>
+                            </div>
+                            <div class="form-check mb-3" v-for="(item, index) in todoList">
+                                <input class="form-check-input" :id=`flexCheck${index}` type="checkbox" v-model="todoList[index].done">
+                                <label class="form-check-label" :for=`flexCheck${index}`><span class="fst-italic pl-1">{{ todoList[0].text }}</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+    </div>
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /vue -->

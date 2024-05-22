@@ -4,3 +4,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.holder {
+  background: #f0efe9;
+  min-height: 100vh;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
+
+.text-gray {
+  color: #aaa;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #adb5bd;
+}
+
+label {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}

@@ -4,6 +4,13 @@ const { createApp } = Vue;
 
 createApp({
   data() {
-    return {};
+    return {
+      todoList: [
+        {
+          text: "Buy a new shirt",
+          done: true,
+        },
+      ],
+    };
   },
 }).mount("#app");
