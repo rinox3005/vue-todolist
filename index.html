@@ -32,11 +32,29 @@
                 <div class="d-flex align-items-center mb-4 pb-4 border-bottom">
                   <i class="far fa-calendar-alt fa-3x"></i>
                   <!-- Data e giorno -->
-                  <div class="ms-3">
+                  <div class="ms-3 position-relative">
                     <h4 class="text-uppercase fw-weight-bold mb-0">
                       {{ currentDay }}
                     </h4>
                     <p class="text-gray fst-italic mb-0">{{ currentDate }}</p>
+                  </div>
+
+                  <div class="col ms-3 pe-4" :class="{status: hidden}">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search"
+                      size="1"
+                      id="inputsm"
+                      v-model="searchInput"
+                      @input="searchToDo()"
+                    />
+                  </div>
+                  <div>
+                    <i
+                      class="fa-solid fa-magnifying-glass pt-2 ps-2 position-absolute"
+                      @click="searchBar"
+                    ></i>
                   </div>
                 </div>
                 <!-- Campo di input per l'inserimento di un nuovo todo -->
@@ -45,43 +63,48 @@
                     type="text"
                     class="form-control"
                     placeholder="New ToDo"
-                    maxlength="40"
+                    maxlength="49"
                     aria-label="New ToDo"
                     aria-describedby="button-addon2"
                     v-model="newToDo"
-                    @keyup.enter="createNewToDo"
+                    @keyup.enter="createNewToDo()"
                   />
                   <button
                     class="btn btn-outline-dark"
                     type="button"
                     id="button-addon2"
-                    @click="createNewToDo"
+                    @click="createNewToDo()"
                   >
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
                 <!-- Elementi della todo list -->
-                <div
-                  class="form-check mb-3"
-                  v-for="(item, index) in todoList"
-                  :key="index"
-                >
-                  <input
-                    class="form-check-input"
-                    :id="`flexCheck${index}`"
-                    type="checkbox"
-                    v-model="item.done"
-                  />
-                  <label
-                    class="form-check-label"
-                    :class="{done: item.done}"
-                    :for="`flexCheck${index}`"
-                    ><span class="fst-italic pl-1">{{ item.text }}</span></label
+                <div id="toDoContainer">
+                  <div
+                    class="form-check mb-3"
+                    v-for="(toDo, index) in todoList"
+                    :key="`task-${index}`"
+                    v-show="toDo.visible"
                   >
-                  <i
-                    class="fas fa-xmark ps-2 delete"
-                    @click="deleteItem(index)"
-                  ></i>
+                    <input
+                      class="form-check-input"
+                      :id="`flexCheck${index}`"
+                      type="checkbox"
+                      v-model="toDo.done"
+                    />
+                    <label
+                      class="form-check-label"
+                      :class="{done: toDo.done}"
+                      :for="`flexCheck${index}`"
+                      ><span class="fst-italic pl-1"
+                        >{{ toDo.text }}</span
+                      ></label
+                    >
+                    <i
+                      class="fas fa-xmark ps-2 delete"
+                      @click="deleteItem(index)"
+                    ></i>
+                  </div>
                 </div>
               </div>
             </div>

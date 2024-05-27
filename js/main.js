@@ -7,6 +7,8 @@ createApp({
     return {
       todoList: [],
       newToDo: "",
+      hidden: true,
+      searchInput: "",
       monthNames: [
         "January",
         "February",
@@ -52,8 +54,30 @@ createApp({
     createNewToDo() {
       const trimmedToDo = this.newToDo.trim();
       if (trimmedToDo) {
-        this.todoList.push({ text: trimmedToDo, done: false });
+        this.todoList.push({ text: trimmedToDo, done: false, visible: true });
         this.newToDo = "";
+      }
+    },
+    searchBar() {
+      if (this.hidden) {
+        this.hidden = false;
+      } else {
+        this.hidden = true;
+        this.searchInput = "";
+      }
+    },
+    searchToDo() {
+      this.todoList.forEach((toDo) => {
+        toDo.visible = true;
+      });
+      if (this.searchInput.toLowerCase()) {
+        this.todoList.forEach((toDo) => {
+          if (
+            !toDo.text.toLowerCase().includes(this.searchInput.toLowerCase())
+          ) {
+            toDo.visible = false;
+          }
+        });
       }
     },
   },

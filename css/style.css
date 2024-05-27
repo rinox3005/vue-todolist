@@ -49,3 +49,23 @@ a {
 .text-shadow {
   text-shadow: 1px 1px #585757;
 }
+
+.fa-magnifying-glass {
+  top: 55px;
+  right: 45px;
+  font-size: 20px;
+}
+
+.fa-magnifying-glass:hover {
+  cursor: pointer;
+  color: rgb(138, 138, 138);
+}
+
+.status {
+  display: none;
+}
+
+#toDoContainer {
+  overflow-y: auto;
+  max-height: 400px;
+}
