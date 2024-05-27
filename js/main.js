@@ -68,6 +68,9 @@ createApp({
       } else {
         this.hidden = true;
         this.searchInput = "";
+        this.todoList.forEach((toDo) => {
+          toDo.visible = true;
+        });
       }
     },
     searchToDo() {
