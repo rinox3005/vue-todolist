@@ -57,6 +57,10 @@ createApp({
         this.todoList.push({ text: trimmedToDo, done: false, visible: true });
         this.newToDo = "";
       }
+      this.$nextTick(() => {
+        const toDoContainer = document.getElementById("toDoContainer");
+        toDoContainer.scrollTop = toDoContainer.scrollHeight;
+      });
     },
     searchBar() {
       if (this.hidden) {
